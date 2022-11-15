@@ -2,6 +2,8 @@
 using P2_TIDSM4A_MSM_U3.Data.ViewModels;
 using P2_MSM_TIDSM4A_U3.Data.Models;
 using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace P2_TIDSM4A_MSM_U3.Data.Models.Services
 {
@@ -30,6 +32,8 @@ namespace P2_TIDSM4A_MSM_U3.Data.Models.Services
             _context.Books.Add(_book);
             _context.SaveChanges();
         }
+        public List<Book> GetAllBks() => _context.Books.ToList();
+        public Book GetBookById(int bookid) => _context.Books.FirstOrDefault(n => n.id == bookid);
 
     }
 }
