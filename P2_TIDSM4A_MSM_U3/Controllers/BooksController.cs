@@ -35,5 +35,21 @@ namespace P2_TIDSM4A_MSM_U3.Controllers
            _booksService.AddBook(book);
             return Ok();
         }
+
+
+        [HttpPut("update-book-by-id/{id}")]
+        public IActionResult UpdateBookByID(int id, [FromBody]BookVM book) 
+        {
+            var updateBook = _booksService.UpdateBookByID(id, book);
+            return Ok(updateBook);
+        }
+
+
+        [HttpDelete("delete-book-by-id/{id}")]
+        public IActionResult DeleteBookById(int id) 
+        {
+            _booksService.DeleteBookById(id);
+            return Ok();
+        }
     }
 }
